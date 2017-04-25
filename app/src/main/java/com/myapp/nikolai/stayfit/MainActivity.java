@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +25,13 @@ public class MainActivity extends AppCompatActivity {
         final EditText field_height = (EditText) findViewById(R.id.field_height);
         final TextView view_result = (TextView) findViewById(R.id.view_result);
         final TextView view_msg = (TextView) findViewById(R.id.view_msg);
-        final RadioButton radio_male =(RadioButton) findViewById(R.id.radio_male);
-        final RadioButton radio_female =(RadioButton) findViewById(R.id.radio_female);
-
+        final TextView log_msg= (TextView) findViewById(R.id.log_box);        //final RadioButton radio_male =(RadioButton) findViewById(R.id.radio_male);
+        final RadioButton radiomale =(RadioButton) findViewById(R.id.radioBtnMale);
+        final RadioGroup radioGenderGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
         button_calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 double weight;
                 double height;
@@ -62,24 +63,6 @@ public class MainActivity extends AppCompatActivity {
                        bmi=bmi*0.95;
                    }
 
-       /*            @Override
-                    public void onRadioButtonClicked(View v) {
-                        // Is the button now checked?
-                        boolean checked = ((RadioButton) v).isChecked();
-
-                        // Check which radio button was clicked
-                        switch(v.getId()) {
-                            case R.id.radio_male:
-                                if (checked)
-                                    // Pirates are the best
-                                    break;
-                            case R.id.radio_female:
-                                if (checked)
-                                    bmi=bmi*0.990;
-                                    break;
-                        }
-                    }
-*/
 
                     if (bmi < 15) {
                         msg = "Very Severely underweight >:C";
@@ -102,14 +85,18 @@ public class MainActivity extends AppCompatActivity {
                     String bmi_f = String.format("%.2f",bmi);
 
                     view_result.setText(String.valueOf(bmi_f));
+
+                   // view_msg.setText(String.valueOf(selectedId));
                     view_msg.setText(msg);
+
+                    boolean a =radiomale.isSelected();
+                    String s=radiomale.getText().toString();
+                   log_msg.setText(String.valueOf(a));
+                  //  log_msg.setText(s);
+
                 }
             }
         });
     }
 
 }
-
-
-
-

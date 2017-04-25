@@ -52,26 +52,6 @@
         android:layout_marginTop="33dp"
         android:text="Weight" />
 
-    <RadioButton
-        android:id="@+id/radio_male"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:text="Male"
-        android:layout_below="@+id/field_weight"
-        android:layout_alignLeft="@+id/field_weight"
-        android:layout_alignStart="@+id/field_weight" />
-
-    <RadioButton
-        android:id="@+id/radio_female"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Female"
-        android:layout_alignBaseline="@+id/radio_male"
-        android:layout_alignBottom="@+id/radio_male"
-        android:layout_alignRight="@+id/field_weight"
-        android:layout_alignEnd="@+id/field_weight" />
-
     <EditText
         android:id="@+id/field_height"
         android:layout_width="wrap_content"
@@ -110,23 +90,24 @@
         android:id="@+id/button_calc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/radio_female"
-        android:layout_alignLeft="@+id/text_weight"
-        android:layout_alignRight="@+id/radio_female"
-        android:layout_alignStart="@+id/text_weight"
-        android:layout_below="@+id/radio_male"
-        android:layout_marginTop="18dp"
-        android:text="Calculate BMI" />
+        android:text="Calculate BMI"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_alignEnd="@+id/radioGroup"
+        android:layout_alignLeft="@+id/radioGroup"
+        android:layout_alignStart="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/view_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:text="View Result"
         android:layout_below="@+id/button_calc"
-        android:layout_alignLeft="@+id/radio_male"
-        android:layout_alignStart="@+id/radio_male" />
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="48dp"
+        android:layout_toEndOf="@+id/textView9"
+        android:layout_toRightOf="@+id/textView9"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
     <TextView
         android:id="@+id/view_msg"
@@ -135,24 +116,76 @@
         android:layout_alignLeft="@+id/view_result"
         android:layout_alignStart="@+id/view_result"
         android:layout_below="@+id/view_result"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/view_msg"
-        android:layout_toLeftOf="@+id/field_height"
-        android:layout_toStartOf="@+id/field_height"
-        android:text="Your BMI :" />
+        android:text="Your BMI :"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignBaseline="@+id/view_result"
+        android:layout_alignBottom="@+id/view_result"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Diagnosis :"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:layout_alignBaseline="@+id/view_msg"
+        android:layout_alignBottom="@+id/view_msg"
         android:layout_alignLeft="@+id/textView8"
-        android:layout_alignStart="@+id/textView8"
-        android:layout_alignTop="@+id/view_msg"
-        android:text="Diagnosis :" />
+        android:layout_alignStart="@+id/textView8" />
+
+    <RadioGroup
+        android:minHeight="40dp"
+        android:minWidth="300dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/field_weight"
+        android:layout_alignStart="@+id/field_weight"
+        android:layout_below="@+id/field_weight"
+        android:layout_marginTop="23dp"
+        android:layout_alignRight="@+id/field_weight"
+        android:layout_alignEnd="@+id/field_weight"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/radioBtnMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:layout_weight="0.50"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radioBtnFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button_calc"
+            android:layout_alignEnd="@+id/text_weight"
+            android:layout_alignRight="@+id/text_weight"
+            android:layout_weight="0.39"
+            android:text="Female"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/log_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/view_msg"
+        android:layout_alignStart="@+id/view_msg"
+        android:layout_below="@+id/view_msg"
+        android:layout_marginTop="25dp"
+        android:text="log" />
 
 </RelativeLayout>
